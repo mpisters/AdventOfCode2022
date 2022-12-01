@@ -22,4 +22,23 @@ public class TestDay
 
         return totalIncrease;
     }
+    
+    public int GetDay1Part2(List<string> input)
+    {
+        var totalIncrease = 0;
+        List<int> inputNumbers = input.Select((x) => int.Parse(x)).ToList();
+        var total = inputNumbers.Count - 2;
+        var sum = 0;
+        for (var i = 0; i < total; i++)
+        {
+            var newSum = inputNumbers[i] + inputNumbers[i + 1] + inputNumbers[i + 2];
+            if ( newSum > sum)
+            {
+                totalIncrease++;
+                sum = newSum;
+            }
+        }
+
+        return totalIncrease;
+    }
 }
