@@ -1,8 +1,8 @@
 namespace AdventOfCode2022.Day2;
 
-public static class MapWinnerRockPaperScissorsTo
+public static class MapWinnerRockPaperScissorsEnum
 {
-    public static RockScissorsPaperEnum MapOpponentRockPaperScissorsTo(this WinnerRockPaperScissors winner)
+    public static RockScissorsPaperEnum MapWinnerRockPaperScissorsTo(this WinnerRockPaperScissors winner)
     {
         switch (winner)
         {

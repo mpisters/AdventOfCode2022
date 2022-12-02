@@ -2,7 +2,7 @@ namespace AdventOfCode2022.Day2;
 
 public enum WinnerRockPaperScissors
 {
-    X = 1,
-    Y = 2,
-    Z = 3,
+    X = 0,
+    Y = 3,
+    Z = 6,
 }
