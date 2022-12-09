@@ -15,6 +15,19 @@ public class Day3 : AdventOfCodeDay
 
         return total;
     }
+    
+    public int GetPart2(List<string> inputValues)
+    {
+        var total = 0;
+        for (var i = 0; i < inputValues.Count; i+=3)
+        {
+            var matchingCharacter = GetMatchingCharacter(inputValues, i);
+            var valueOfCharacter = GetValueOfCharacter(matchingCharacter);
+            total += valueOfCharacter; 
+        }
+
+        return total;
+    }
 
     private int GetValueOfCharacter(char foundCharacter)
     {
@@ -31,8 +44,14 @@ public class Day3 : AdventOfCodeDay
         return intersection.First();
     }
 
-    public int GetPart2(List<string> inputValues)
+
+
+    private Char GetMatchingCharacter(List<string> inputValues, int i)
     {
-        throw new NotImplementedException();
+;
+        var firstChunk = inputValues[i];
+        var secondChunk = inputValues[i + 1];
+        var thirdChunk = inputValues[i + 2];
+        return firstChunk.Intersect(secondChunk).Intersect(thirdChunk).ToList().First();
     }
 }
