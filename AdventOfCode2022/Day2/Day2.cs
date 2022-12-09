@@ -1,8 +1,8 @@
 namespace AdventOfCode2022.Day2;
 
-public class Day2
+public class Day2 : AdventOfCodeDay
 {
-    public int GetDay2Part1(List<string> inputValues)
+    public int GetPart1(List<string> inputValues)
     {
         var total = 0;
         foreach (var inputValue in inputValues)
@@ -17,7 +17,7 @@ public class Day2
         return total;
     }
     
-    public int GetDay2Part2(List<string> inputValues)
+    public int GetPart2(List<string> inputValues)
     {
         var total = 0;
         foreach (var inputValue in inputValues)

@@ -14,7 +14,7 @@ public class Day1Test
             var filehelper = new FileReaderHelper();
             var input = filehelper.GetStringsOfFile(pathToInput);
             var day1 = new Day1();
-            var solution = day1.GetDay1Part1(input);
+            var solution = day1.GetPart1(input);
             Assert.Equal(expectedIncreasedTotal, solution);
         }
         
@@ -26,7 +26,7 @@ public class Day1Test
             var filehelper = new FileReaderHelper();
             var input = filehelper.GetStringsOfFile(pathToInput);
             var day1 = new Day1();
-            var solution = day1.GetDay1Part2(input);
+            var solution = day1.GetPart2(input);
             Assert.Equal(expectedIncreasedTotal, solution);
         }
 }

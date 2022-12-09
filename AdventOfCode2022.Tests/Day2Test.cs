@@ -3,7 +3,7 @@ using AdventOfCode2022.Day2;
 
 namespace AdventOfCode2022Tests;
 
-public class Day2Test2
+public class Day2Test
 {
     [Theory]
     [InlineData("../../../../AdventOfCode2022/Day2/day2inputsubsetpart1.txt", 15)]
@@ -13,7 +13,7 @@ public class Day2Test2
         var fileHelper = new FileReaderHelper();
         var input = fileHelper.GetStringsOfFile(pathToInput);
         var day2 = new Day2();
-        var solution = day2.GetDay2Part1(input);
+        var solution = day2.GetPart1(input);
         Assert.Equal(expectedIncreasedTotal, solution);
     }  
     
@@ -25,7 +25,7 @@ public class Day2Test2
         var fileHelper = new FileReaderHelper();
         var input = fileHelper.GetStringsOfFile(pathToInput);
         var day2 = new Day2();
-        var solution = day2.GetDay2Part2(input);
+        var solution = day2.GetPart2(input);
         Assert.Equal(expectedIncreasedTotal, solution);
     }  
 }

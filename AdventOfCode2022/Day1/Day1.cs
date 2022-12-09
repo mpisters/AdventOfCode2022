@@ -2,15 +2,15 @@ using System.Collections.Immutable;
 
 namespace AdventOfCode2022.Day1;
 
-public class Day1
+public class Day1 : AdventOfCodeDay
 {
-    public int GetDay1Part1(List<string> inputValues)
+    public int GetPart1(List<string> inputValues)
     {
         var sortedListOfAllCalories = GetSortedListOfAllCalories(inputValues);
         return sortedListOfAllCalories[0];
     }
 
-    public int GetDay1Part2(List<string> inputValues)
+    public int GetPart2(List<string> inputValues)
     {
         var sortedListOfAllCalories = GetSortedListOfAllCalories(inputValues);
         return sortedListOfAllCalories[0] + sortedListOfAllCalories[1] + sortedListOfAllCalories[2];
