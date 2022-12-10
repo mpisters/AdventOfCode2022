@@ -19,8 +19,8 @@ public class Day4Test
     }
     
     [Theory]
-    [InlineData("../../../../AdventOfCode2022/Day4/day4inputsubsetpart1.txt",70)]
-    [InlineData("../../../../AdventOfCode2022/Day4/day4inputpart1.txt", 2973)]
+    [InlineData("../../../../AdventOfCode2022/Day4/day4inputsubsetpart2.txt",4)]
+    [InlineData("../../../../AdventOfCode2022/Day4/day4inputpart1.txt", 827)]
     public void Part2(string pathToInput, int expectedIncreasedTotal)
     {
         var filehelper = new FileReaderHelper();

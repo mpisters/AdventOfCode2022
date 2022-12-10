@@ -8,6 +8,12 @@ public class Day4
     {
         return GetOverlappingSections(inputValues);
     }
+    
+    public int GetPart2(List<string> inputValues)
+    {
+        return GetOverlappingSectionsPart2(inputValues);
+    }
+
 
     private int GetOverlappingSections(List<string> rawListsOfsections)
     {
@@ -31,8 +37,17 @@ public class Day4
         return rangeSectionsNumbers;
     }
 
-    public int GetPart2(List<string> inputValues)
+
+    private int GetOverlappingSectionsPart2(List<string> rawListsOfsections)
     {
-        throw new NotImplementedException();
+        var listOfMatchingSections = rawListsOfsections.Select(x =>
+        {
+            var elvesLists = x.Split(",").ToList();
+            var sections = elvesLists.Select(GetRangeOfSectionsNumbers).ToList();
+            var range1 = sections[0];
+            var range2 = sections[1];
+            return range1.Intersect(range2).Any() || range2.Intersect(range1).Any();
+        }).ToList();
+        return listOfMatchingSections.Count(match => match == true);
     }
 }
