@@ -11,14 +11,23 @@ public class Day5
         return GetHighestCrates(endPositionOfAllCrates);
     }
 
+    public string GetPart2(List<List<string>> inputValues)
+    {
+        var startPositionAllCrates = GetStartPositionsOfAllCrates(inputValues[0]);
+        var endPositionOfAllCrates = GetEndPositionOfAllCrates2(inputValues[1], startPositionAllCrates);
+        return GetHighestCrates(endPositionOfAllCrates);
+    }
+
     private string GetHighestCrates(Dictionary<int, List<string>> endPositionOfAllCrates)
     {
-        var listAllHighestCrates = endPositionOfAllCrates.Select(item => item.Value).Select(listCrates => listCrates[^1]).ToList();
+        var listAllHighestCrates = endPositionOfAllCrates.Select(item => item.Value)
+            .Select(listCrates => listCrates[^1]).ToList();
 
         return string.Join(" ", listAllHighestCrates);
     }
 
-    private Dictionary<int, List<string>> GetEndPositionOfAllCrates(List<string> inputValues, Dictionary<int, List<string>> mappedPositions)
+    private Dictionary<int, List<string>> GetEndPositionOfAllCrates(List<string> inputValues,
+        Dictionary<int, List<string>> mappedPositions)
     {
         foreach (var input in inputValues)
         {
@@ -28,14 +37,41 @@ public class Day5
             var endPosition = int.Parse(inputArray[5]);
 
             var startingArray = mappedPositions[startPosition];
-            
+
             startingArray.Reverse();
             var itemsToMove = startingArray.Take(totalMoves);
-            
+
             var endArray = mappedPositions[endPosition];
             var concatenatedEndArray = endArray.Concat(itemsToMove);
             mappedPositions[endPosition] = concatenatedEndArray.ToList();
-            
+
+            startingArray.Reverse();
+            var newStartingArray = startingArray.Take(startingArray.Count - totalMoves);
+            mappedPositions[startPosition] = newStartingArray.ToList();
+        }
+
+        return mappedPositions;
+    }
+
+    private Dictionary<int, List<string>> GetEndPositionOfAllCrates2(List<string> inputValues,
+        Dictionary<int, List<string>> mappedPositions)
+    {
+        foreach (var input in inputValues)
+        {
+            var inputArray = input.Split(" ");
+            var totalMoves = int.Parse(inputArray[1]);
+            var startPosition = int.Parse(inputArray[3]);
+            var endPosition = int.Parse(inputArray[5]);
+
+            var startingArray = mappedPositions[startPosition];
+
+            startingArray.Reverse();
+            var itemsToMove = startingArray.Take(totalMoves).Reverse();
+
+            var endArray = mappedPositions[endPosition];
+            var concatenatedEndArray = endArray.Concat(itemsToMove);
+            mappedPositions[endPosition] = concatenatedEndArray.ToList();
+
             startingArray.Reverse();
             var newStartingArray = startingArray.Take(startingArray.Count - totalMoves);
             mappedPositions[startPosition] = newStartingArray.ToList();
@@ -67,10 +103,5 @@ public class Day5
         }
 
         return mappedPositions;
-    }
-
-    public int GetPart2(List<string> inputValues)
-    {
-        throw new NotImplementedException();
     }
 }
