@@ -15,11 +15,11 @@ public class FileReaderHelper
 
         return lines;
     }
-    public List<List<string>> GetGroupedStringsOfFileSplitOnWithLines(string pathToInput)
+    public List<List<string>> GetGroupedStringsOfFileSplitOnWithLines(string pathToInput, string[]? pattern = null)
     {
         var path = Path.Combine(Directory.GetCurrentDirectory(), pathToInput);
         var file = File.ReadAllText(path);
-        var inputLines = file.Split(new string[] { "\n\n" },
+        var inputLines = file.Split(pattern ?? new string[] { "\n\n" },
             StringSplitOptions.RemoveEmptyEntries);
         return inputLines.ToList().Select(block =>
         {
